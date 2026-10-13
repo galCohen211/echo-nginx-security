@@ -87,10 +87,26 @@ docker run --rm -d -p 8080:80 --name test-echo echo-nginx:1.25.5
 Open http://localhost:8080. You should see the "Welcome to nginx!" page.
 
 ### Run the tests
+Requires Node.js 20 or newer.
 
-TODO
+```powershell
+make test
+```
+
+This starts the original `nginx:1.25-bookworm` and my `echo-nginx:1.25.5`
+side by side, sends the same 26 requests to both (normal pages, custom
+config, large files, broken requests and more), and checks that the
+answers are exactly the same. It also sends a bad mp4 file that triggers
+CVE-2024-7347: the original accepts it, my image rejects it.
+
+Details in `test/README.md`.
 
 ## Image Size (original vs. new)
+| Image                          | Size   |
+| ------------------------------ | ------ |
+| nginx:1.25-bookworm (original) | 276 MB |
+| echo-nginx:1.25.5 (new)        | 140 MB |
+
 The new image is about half the size. The main reason is that I removed
 four nginx modules (geoip, image-filter, njs and xslt). The default nginx
 config does not load them, so they were not used. Each module needs extra
@@ -107,8 +123,15 @@ docker image ls echo-nginx:1.25.5
 
 ## CVE Table
 
-| ID  | Severity | Fix method | Evidence |
-| --- | -------- | ---------- | -------- |
+| ID             | Severity                          | Fix method                                | Evidence |
+| -------------- | --------------------------------- | ----------------------------------------- | -------- |
+| CVE-2024-7347  | Low (nginx.org)                   | Backport (official nginx patch on 1.25.5) | [Patch](build/patches/CVE-2024-7347.patch), [test](test/src/scenarios.ts): a crafted mp4 file gets `200` from the original and `500` from my image |
+| CVE-2024-6119  | High (Trivy) / High (Grype)       | Version bump: OpenSSL 3.0.11 → 3.0.22     | TODO: rescan |
+| CVE-2025-15467 | High (Trivy) / Critical (Grype)   | Version bump: OpenSSL 3.0.11 → 3.0.22     | TODO: rescan |
+
+CVE-2024-7347 does not appear in the scanner reports, because the
+scanners do not check nginx.org's own security list (see `TRIAGE.md`).
+So its evidence comes from the patch and from the compatibility test.
 
 ## Residual Risk Assessment
 **nginx still has known security problems.** nginx.org lists 24 security

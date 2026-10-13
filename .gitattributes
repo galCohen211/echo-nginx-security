@@ -11,3 +11,5 @@ Makefile    text eol=lf
 Dockerfile  text eol=lf
 Containerfile text eol=lf
 reports/upstream-nginx-V.txt -text
+# Served byte-for-byte by the compatibility test
+test/fixtures/** -text

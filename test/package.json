@@ -2,7 +2,17 @@
   "name": "echo-nginx-compat-test",
   "version": "0.1.0",
   "private": true,
-  "description": "Compatibility tests for the hardened NGINX image",
+  "description": "Compatibility test: echo-nginx:1.25.5 vs nginx:1.25-bookworm",
   "type": "module",
-  "scripts": {}
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "node dist/main.js"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.6",
+    "typescript": "5.6.3"
+  }
 }

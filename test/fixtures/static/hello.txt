@@ -1,0 +1,6 @@
+Hello from the echo-nginx compatibility test.
+This file is served by both images from the same bind mount.
+It is long enough to be gzip-compressed (gzip_min_length 20).
+Line four repeats the text so compression has something to do.
+Hello from the echo-nginx compatibility test.
+Hello from the echo-nginx compatibility test.

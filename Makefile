@@ -24,8 +24,16 @@ build:
 image: deb
 	docker build -f Containerfile -t $(IMAGE) .
 
-# Run the TypeScript compatibility tests in test/.
-test:
+# Compatibility test (test/): echo-nginx vs nginx:1.25-bookworm. Needs Node.js 20+.
+# The recipe must work under both cmd.exe (Windows make) and sh, so all logic
+# (Node version check, image pull, npm ci, build, run) is in test/scripts/run.cjs.
+# Only "is node on PATH at all" is checked here, since run.cjs needs node to start.
+UPSTREAM_IMAGE ?= nginx:1.25-bookworm
+NODE_VERSION = $(shell node --version 2>&1)
+
+test: image
+	$(if $(filter v%,$(NODE_VERSION)),,$(error Node.js 20+ is required for 'make test' but node was not found in PATH))
+	node test/scripts/run.cjs --upstream $(UPSTREAM_IMAGE) --candidate $(IMAGE)
 
 # Scan the image for vulnerabilities; write results to reports/.
 scan:
