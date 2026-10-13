@@ -3,6 +3,7 @@ node_modules/
 dist/
 *.tsbuildinfo
 coverage/
+test/.work/
 .npm/
 .eslintcache
 
