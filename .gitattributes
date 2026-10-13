@@ -2,6 +2,7 @@
 # verified against SHA256SUMS and PGP signatures byte-for-byte, and shell
 # scripts / Makefiles break with CRLF.
 *.sh        text eol=lf
+*.envsh     text eol=lf
 *.patch     -text
 *.asc       -text
 *.key       -text

@@ -1,12 +1,13 @@
 # Makefile
 #
 # Entry points for building, testing and scanning the hardened NGINX image.
-# Only `deb` is implemented so far; the other targets are placeholders.
+# Implemented: `deb` and `image`; the other targets are placeholders.
 
 # Parallel compile jobs inside the build container. Kept low by default:
 # Docker Desktop's VM has crashed under heavy load on this machine.
 JOBS ?= 2
 DEB_OUT := build/out
+IMAGE ?= echo-nginx:1.25.5
 
 .PHONY: deb build image test scan clean
 
@@ -19,8 +20,9 @@ deb:
 # Fetch and compile NGINX from source (output under build/).
 build:
 
-# Build the container image from the Containerfile.
-image:
+# Build the container image from the Containerfile, using the .deb from `deb`.
+image: deb
+	docker build -f Containerfile -t $(IMAGE) .
 
 # Run the TypeScript compatibility tests in test/.
 test:
