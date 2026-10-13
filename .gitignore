@@ -27,9 +27,11 @@ Thumbs.db
 *.tar.gz
 *.tar.xz
 
-# Everything under build/ except tracked patches and build scripts
+# Everything under build/ (incl. build/out/) except tracked build inputs
 build/*
 !build/patches/
+!build/keys/
+!build/Dockerfile
 !build/*.sh
 !build/*.md
 

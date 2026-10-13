@@ -1,0 +1,12 @@
+# Build inputs must keep LF line endings on every platform: patches are
+# verified against SHA256SUMS and PGP signatures byte-for-byte, and shell
+# scripts / Makefiles break with CRLF.
+*.sh        text eol=lf
+*.patch     -text
+*.asc       -text
+*.key       -text
+SHA256SUMS  text eol=lf
+Makefile    text eol=lf
+Dockerfile  text eol=lf
+Containerfile text eol=lf
+reports/upstream-nginx-V.txt -text

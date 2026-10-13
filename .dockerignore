@@ -1,0 +1,6 @@
+# Send only what the package build needs to the Docker build context.
+*
+!build/build.sh
+!build/keys/
+!build/patches/
+!reports/upstream-nginx-V.txt
