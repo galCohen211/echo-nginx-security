@@ -1,9 +1,20 @@
-# Makefile (placeholder)
+# Makefile
 #
 # Entry points for building, testing and scanning the hardened NGINX image.
-# Targets are intentionally empty for now.
+# Only `deb` is implemented so far; the other targets are placeholders.
 
-.PHONY: build image test scan clean
+# Parallel compile jobs inside the build container. Kept low by default:
+# Docker Desktop's VM has crashed under heavy load on this machine.
+JOBS ?= 2
+DEB_OUT := build/out
+
+.PHONY: deb build image test scan clean
+
+# Build the nginx .deb from source (build/Dockerfile + build/build.sh).
+# Output: build/out/*.deb, built-nginx-V.txt, SHA256SUMS.
+deb:
+	docker build -f build/Dockerfile --build-arg JOBS=$(JOBS) \
+		--target export --output type=local,dest=$(DEB_OUT) .
 
 # Fetch and compile NGINX from source (output under build/).
 build:
