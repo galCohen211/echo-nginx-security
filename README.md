@@ -146,6 +146,8 @@ docker image ls echo-nginx:1.25.5
 | CVE-2024-6119  | High (Trivy) / High (Grype)     | Version bump (OpenSSL 3.0.22) | [diff](reports/diff.md)                                                                           |
 | CVE-2025-15467 | High (Trivy) / Critical (Grype) | Version bump (OpenSSL 3.0.22) | [diff](reports/diff.md)                                                                           |
 
+Why I chose these CVEs, and the full triage: see [TRIAGE.md](TRIAGE.md).
+
 **CVE-2024-7347:** I applied nginx's official patch to version 1.25.5.
 The normal image scan does not report this CVE, because the scanners don't
 check nginx's own security list. I proved the fix in two ways:
