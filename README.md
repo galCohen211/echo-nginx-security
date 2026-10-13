@@ -17,9 +17,9 @@ The compatibility tests under test/ are written in TypeScript, as approved by Ec
 ### Build the nginx package
 Run:
 
-    ```powershell
-    make deb
-    ```
+```powershell
+make deb
+```
 
 This builds nginx 1.25.5 from source inside a clean `debian:bookworm-slim`
 container. The script (`build/build.sh`) does these steps:
@@ -101,6 +101,23 @@ CVE-2024-7347: the original accepts it, my image rejects it.
 
 Details in `test/README.md`.
 
+### Scan the image
+```powershell
+make scan
+```
+
+Scans my image with the same Trivy and Grype versions as the baseline,
+and writes the comparison to `reports/diff.md`.
+
+### VEX demo (bonus)
+```powershell
+make vex
+```
+
+Creates a VEX file for CVE-2024-7347 for the image you just built, and
+shows that Grype hides this CVE on my image but still reports it on the
+original image. Details in `vex/README.md`.
+
 ## Image Size (original vs. new)
 | Image                          | Size   |
 | ------------------------------ | ------ |
@@ -123,15 +140,42 @@ docker image ls echo-nginx:1.25.5
 
 ## CVE Table
 
-| ID             | Severity                          | Fix method                                | Evidence |
-| -------------- | --------------------------------- | ----------------------------------------- | -------- |
-| CVE-2024-7347  | Low (nginx.org)                   | Backport (official nginx patch on 1.25.5) | [Patch](build/patches/CVE-2024-7347.patch), [test](test/src/scenarios.ts): a crafted mp4 file gets `200` from the original and `500` from my image |
-| CVE-2024-6119  | High (Trivy) / High (Grype)       | Version bump: OpenSSL 3.0.11 → 3.0.22     | TODO: rescan |
-| CVE-2025-15467 | High (Trivy) / Critical (Grype)   | Version bump: OpenSSL 3.0.11 → 3.0.22     | TODO: rescan |
+| ID             | Severity                        | Fix method                    | Evidence                                                                                          |
+| -------------- | ------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------- |
+| CVE-2024-7347  | Low (nginx.org)                 | Backport                      | [patch](build/patches/CVE-2024-7347.patch), [test](test/src/scenarios.ts), [VEX demo](reports/vex-demo.md) |
+| CVE-2024-6119  | High (Trivy) / High (Grype)     | Version bump (OpenSSL 3.0.22) | [diff](reports/diff.md)                                                                           |
+| CVE-2025-15467 | High (Trivy) / Critical (Grype) | Version bump (OpenSSL 3.0.22) | [diff](reports/diff.md)                                                                           |
 
-CVE-2024-7347 does not appear in the scanner reports, because the
-scanners do not check nginx.org's own security list (see `TRIAGE.md`).
-So its evidence comes from the patch and from the compatibility test.
+**CVE-2024-7347:** I applied nginx's official patch to version 1.25.5.
+The normal image scan does not report this CVE, because the scanners don't
+check nginx's own security list. I proved the fix in two ways:
+- The test sends a crafted mp4 file: the original image accepts it (`200`),
+  my image rejects it (`500`).
+- Scanning the nginx binary itself with Grype does find CVE-2024-7347. With
+  my VEX file, it disappears for my image but stays for the original image.
+  Run `make vex` to see it.
+
+**OpenSSL:** updated from 3.0.11 to 3.0.22. Both CVEs above are gone in
+both scanners.
+
+### All findings, before and after
+
+|                | Trivy     | Grype     |
+| -------------- | --------- | --------- |
+| Critical       | 20 → 4    | 47 → 19   |
+| High           | 183 → 67  | 260 → 83  |
+| All findings   | 802 → 343 | 767 → 337 |
+
+Where the drop came from (findings removed, Trivy / Grype):
+
+| Cause                                   | Removed   |
+| --------------------------------------- | --------- |
+| OpenSSL version bump (on purpose)       | 84 / 84   |
+| Removed modules (on purpose, extra)     | 222 / 194 |
+| Newer Debian base, 12.5 → 12.15         | 156 / 152 |
+
+The last row is not something I fixed on purpose. It comes from using a
+newer `debian:bookworm-slim` base. Full details in `reports/diff.md`.
 
 ## Residual Risk Assessment
 **nginx still has known security problems.** nginx.org lists 24 security
@@ -165,5 +209,17 @@ for it yet.
    scanners miss it.
 
 ## Surprises / What I'd Do Differently
+Scanner results: I was surprised that Trivy and Grype didn't detect the NGINX vulnerability I fixed with a backport. Because of that, I used a dedicated test to verify the fix.
+
+Security improvements: I learned that updating Debian packages and removing unused modules can reduce the number of reported vulnerabilities significantly.
+
+With more time, I would build the removed NGINX modules too, to improve compatibility. I would also add more tests and investigate additional security fixes.
 
 ## AI Usage
+I used Claude Code during the assignment to help me write code, solve problems, and understand new topics.
+
+I worked step by step. After each step, I ran the commands on my computer, checked the results, and made sure everything worked before moving on.
+
+AI helped me mainly with the build scripts, Debian packages, and tests. However, some suggestions were wrong, like the OpenSSL version and a Makefile command that didn't work on Windows.
+
+This showed me why it's important to test and check AI-generated code instead of just trusting it.
