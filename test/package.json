@@ -1,0 +1,8 @@
+{
+  "name": "echo-nginx-compat-test",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Compatibility tests for the hardened NGINX image",
+  "type": "module",
+  "scripts": {}
+}
