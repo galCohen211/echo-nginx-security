@@ -1,0 +1,90 @@
+NAME        INSTALLED  FIXED IN                                      TYPE    VULNERABILITY   SEVERITY  EPSS          RISK   
+curl        7.88.1     8.3.0                                         binary  CVE-2023-38039  High      58.1% (99th)  43.6   
+curl        7.88.1     8.7.0                                         binary  CVE-2024-2398   High      36.1% (98th)  29.0   
+nginx       1.25.5     *1.28.3, 1.29.7                               binary  CVE-2026-27654  High      25.1% (97th)  19.9   
+curl        7.88.1     8.9.1                                         binary  CVE-2024-7264   Medium    17.3% (97th)  9.9    
+nginx       1.25.5     1.30.1                                        binary  CVE-2026-42945  High      3.4% (88th)   2.7    
+krb5        1.20.1                                                   binary  CVE-2007-5894   High      2.7% (85th)   2.3    
+curl        7.88.1     8.1.0                                         binary  CVE-2023-28319  High      2.5% (84th)   1.9    
+curl        7.88.1     8.0.0                                         binary  CVE-2023-27534  High      2.2% (81st)   1.8    
+krb5        1.20.1     1.21.3                                        binary  CVE-2024-37371  Critical  1.9% (78th)   1.7    
+curl        7.88.1     8.0.0                                         binary  CVE-2023-27533  High      2.0% (80th)   1.7    
+krb5        1.20.1     1.20.2                                        binary  CVE-2023-36054  Medium    2.8% (86th)   1.6    
+curl        7.88.1     8.1.0                                         binary  CVE-2023-28320  Medium    2.7% (85th)   1.4    
+nginx       1.25.5     *1.26.3, 1.27.4                               binary  CVE-2025-23419  Medium    2.8% (86th)   1.4    
+curl        7.88.1     8.11.0                                        binary  CVE-2024-9681   Medium    2.0% (80th)   1.1    
+curl        7.88.1     8.16.0                                        binary  CVE-2025-9086   High      1.4% (71st)   1.0    
+curl        7.88.1     8.1.0                                         binary  CVE-2023-28321  Medium    1.8% (77th)   1.0    
+curl        7.88.1     8.5.0                                         binary  CVE-2023-46218  Medium    1.7% (76th)   1.0    
+curl        7.88.1     8.12.0                                        binary  CVE-2025-0725   High      1.3% (68th)   0.9    
+curl        7.88.1     8.1.0                                         binary  CVE-2023-28322  Low       2.2% (82nd)   0.8    
+nginx       1.25.5     *1.30.4, 1.31.3                               binary  CVE-2026-42533  Critical  0.9% (58th)   0.8    
+nginx       1.25.5     *1.28.3, 1.29.7                               binary  CVE-2026-27651  High      0.9% (59th)   0.7    
+util-linux  2.38.1     *2.39.4, 2.40.1                               binary  CVE-2024-28085  Low       2.2% (82nd)   0.7    
+curl        7.88.1     *8.14.2, 8.16.1, 8.20.1, 8.22.0               binary  CVE-2026-19931  Critical  0.7% (53rd)   0.7    
+nginx       1.25.5     1.30.1                                        binary  CVE-2026-42946  High      0.9% (59th)   0.7    
+curl        7.88.1     *8.14.2, 8.16.1, 8.20.1, 8.22.0               binary  CVE-2026-80231  High      0.9% (58th)   0.7    
+curl        7.88.1     8.21.0                                        binary  CVE-2026-11856  Critical  0.7% (51st)   0.6    
+nginx       1.25.5     *1.28.3, 1.29.7                               binary  CVE-2026-27784  Medium    1.0% (62nd)   0.6    
+curl        7.88.1     8.21.0                                        binary  CVE-2026-8924   Critical  0.7% (50th)   0.6    
+curl        7.88.1     8.5.0                                         binary  CVE-2023-46219  Medium    1.1% (65th)   0.6    
+krb5        1.20.1                                                   binary  CVE-2026-40355  High      0.8% (55th)   0.6    
+curl        7.88.1     8.21.0                                        binary  CVE-2026-10536  Critical  0.6% (47th)   0.6    
+krb5        1.20.1     1.21.3                                        binary  CVE-2024-37370  High      0.7% (53rd)   0.6    
+krb5        1.20.1                                                   binary  CVE-2026-40356  High      0.8% (54th)   0.6    
+curl        7.88.1     8.7.0                                         binary  CVE-2024-2004   Low       1.7% (76th)   0.5    
+curl        7.88.1     *8.14.2, 8.16.1, 8.20.1, 8.22.0               binary  CVE-2026-18924  Critical  0.6% (46th)   0.5    
+nginx       1.25.5     1.26.1                                        binary  CVE-2024-32760  Medium    0.9% (57th)   0.5    
+curl        7.88.1     8.20.0                                        binary  CVE-2026-5773   High      0.7% (50th)   0.5    
+nginx       1.25.5     1.26.1                                        binary  CVE-2024-35200  Medium    0.9% (59th)   0.5    
+curl        7.88.1     8.21.0                                        binary  CVE-2026-8927   Critical  0.5% (41st)   0.5    
+nginx       1.25.5     1.26.1                                        binary  CVE-2024-34161  Medium    0.9% (57th)   0.4    
+nginx       1.25.5     1.26.1                                        binary  CVE-2024-31079  Medium    0.9% (58th)   0.4    
+curl        7.88.1     8.11.1                                        binary  CVE-2024-11053  Low       1.3% (70th)   0.4    
+nginx       1.25.5     *1.30.4, 1.31.3                               binary  CVE-2026-60005  High      0.5% (43rd)   0.4    
+curl        7.88.1     8.10.0                                        binary  CVE-2024-8096   Medium    0.7% (52nd)   0.4    
+gzip        1.12                                                     binary  CVE-2026-41992  High      0.6% (45th)   0.4    
+curl        7.88.1     8.20.0                                        binary  CVE-2026-6253   Medium    0.8% (53rd)   0.4    
+curl        7.88.1     8.18.0                                        binary  CVE-2025-14819  Medium    0.8% (53rd)   0.4    
+nginx       1.25.5     1.30.1                                        binary  CVE-2026-42934  Medium    0.7% (53rd)   0.4    
+nginx       1.25.5     1.30.1                                        binary  CVE-2026-40701  Medium    0.7% (51st)   0.4    
+curl        7.88.1     *8.14.2, 8.16.1, 8.20.1, 8.22.0               binary  CVE-2026-13608  High      0.5% (39th)   0.4    
+curl        7.88.1     8.18.0                                        binary  CVE-2025-14524  Medium    0.7% (51st)   0.4    
+nginx       1.25.5     *1.30.4, 1.31.3                               binary  CVE-2026-56434  High      0.4% (34th)   0.3    
+openssl     3.0.22     1.0.2zs, 1.1.1zj, *3.0.23, 3.4.8, 3.5.9, ...  binary  CVE-2026-84782  High      0.4% (31st)   0.3    
+curl        7.88.1     8.20.0                                        binary  CVE-2026-7168   Medium    0.6% (46th)   0.3    
+curl        7.88.1     8.21.0                                        binary  CVE-2026-12064  High      0.4% (32nd)   0.3    
+curl        7.88.1     8.21.0                                        binary  CVE-2026-8932   High      0.4% (31st)   0.3    
+util-linux  2.38.1                                                   binary  CVE-2026-3184   Medium    0.6% (48th)   0.3    
+curl        7.88.1     8.20.0                                        binary  CVE-2026-5545   Medium    0.5% (41st)   0.3    
+curl        7.88.1     *8.14.2, 8.16.1, 8.20.1, 8.22.0               binary  CVE-2026-82209  High      0.4% (29th)   0.3    
+curl        7.88.1     8.18.0                                        binary  CVE-2025-15079  Medium    0.5% (44th)   0.3    
+nginx       1.25.5     1.29.5                                        binary  CVE-2026-1642   High      0.4% (30th)   0.3    
+curl        7.88.1     *8.14.2, 8.16.1, 8.20.1, 8.22.0               binary  CVE-2026-80230  High      0.4% (29th)   0.3    
+curl        7.88.1     8.19.0                                        binary  CVE-2026-3783   Medium    0.5% (42nd)   0.3    
+curl        7.88.1     8.19.0                                        binary  CVE-2026-3784   Medium    0.5% (38th)   0.3    
+nginx       1.25.5     *1.28.3, 1.29.7                               binary  CVE-2026-32647  High      0.3% (25th)   0.3    
+krb5        1.20.1                                                   binary  CVE-2007-3149   High      0.4% (28th)   0.3    
+curl        7.88.1     8.20.0                                        binary  CVE-2026-6429   Medium    0.5% (41st)   0.3    
+curl        7.88.1     8.20.0                                        binary  CVE-2026-6276   High      0.3% (26th)   0.3    
+curl        7.88.1     8.21.0                                        binary  CVE-2026-9547   High      0.3% (23rd)   0.2    
+curl        7.88.1     8.21.0                                        binary  CVE-2026-8286   High      0.3% (21st)   0.2    
+curl        7.88.1     8.12.0                                        binary  CVE-2025-0167   Low       0.7% (51st)   0.2    
+curl        7.88.1     8.21.0                                        binary  CVE-2026-8458   Medium    0.4% (29th)   0.2    
+nginx       1.25.5     1.29.1                                        binary  CVE-2025-53859  Medium    0.4% (33rd)   0.2    
+openssl     3.0.22     1.1.1zj, *3.0.23, 3.4.8, 3.5.9, 3.6.5, ...    binary  CVE-2026-75806  Medium    0.4% (30th)   0.2    
+curl        7.88.1     8.16.0                                        binary  CVE-2025-10966  Medium    0.4% (35th)   0.2    
+nginx       1.25.5     *1.30.3, 1.31.2                               binary  CVE-2026-48142  Medium    0.4% (29th)   0.2    
+curl        7.88.1     8.20.0                                        binary  CVE-2026-4873   Medium    0.4% (27th)   0.2    
+nginx       1.25.5     *1.26.2, 1.27.1                               binary  CVE-2024-7347   Medium    0.3% (23rd)   0.2    
+curl        7.88.1     8.19.0                                        binary  CVE-2026-1965   Medium    0.3% (16th)   0.2    
+curl        7.88.1     8.18.0                                        binary  CVE-2025-15224  Low       0.5% (39th)   0.1    
+openssl     3.0.22     1.0.2zs, 1.1.1zj, *3.0.23, 3.4.8, 3.5.9, ...  binary  CVE-2026-35189  Medium    0.3% (17th)   0.1    
+nginx       1.25.5     *1.28.3, 1.29.7                               binary  CVE-2026-28753  Medium    0.3% (16th)   0.1    
+openssl     3.0.22     *3.0.23, 3.4.8, 3.5.9, 3.6.5, 4.0.3           binary  CVE-2026-75805  Medium    0.2% (11th)   0.1    
+util-linux  2.38.1     2.42.2                                        binary  CVE-2026-13595  Medium    0.2% (5th)    < 0.1  
+openssl     3.0.22     1.0.2zs, 1.1.1zj, *3.0.23, 3.4.8, 3.5.9, ...  binary  CVE-2026-54872  Low       0.3% (16th)   < 0.1  
+openssl     3.0.22     1.1.1zj, *3.0.23, 3.4.8, 3.5.9, 3.6.5, ...    binary  CVE-2026-77696  Low       0.2% (14th)   < 0.1  
+curl        7.88.1     8.18.0                                        binary  CVE-2025-14017  Medium    0.1% (1st)    < 0.1  
+gzip        1.12                                                     binary  CVE-2026-41991  Medium    0.1% (3rd)    < 0.1  
+util-linux  2.38.1     2.41.4                                        binary  CVE-2026-27456  Medium    0.1% (1st)    < 0.1  

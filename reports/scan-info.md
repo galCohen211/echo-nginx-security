@@ -103,3 +103,9 @@ repository (maintainer `NGINX Packaging <nginx-packaging@f5.com>`), not from Deb
   downloading the Grype DB as a separate step keeps the scan lighter.
 - Superseded: an earlier baseline used Trivy 0.58.1 (802 vs. 805 findings; the
   difference is the three nginx CVEs).
+
+## Rescan of echo-nginx:1.25.5
+
+Run with `make scan` (`tools/scan.mjs`): same pinned images and flags as above. Scanner and DB versions are
+recorded in `echo-scan-info.md`. On 2026-10-13 both DBs were **identical** to the baseline (trivy-db updated
+2026-10-13 01:09:18 UTC, grype-db v6.1.10 built 2026-10-13 06:35:20 UTC), so `diff.md` reflects image changes only.
